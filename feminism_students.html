@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Між нами дівчатами — Фемінізм</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose:    #D4548A;
+  --rose-lt: #FAE8F1;
+  --plum:    #6B2D5E;
+  --peach:   #F4A261;
+  --peach-lt:#FEF0E3;
+  --sage:    #4A7C6F;
+  --sage-lt: #E0EDE9;
+  --cream:   #FDF8F3;
+  --ink:     #1E1A2E;
+  --muted:   #7A7087;
+  --border:  #EBE3E8;
+  --white:   #FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65}
+
+/* HERO */
+.hero{
+  background: linear-gradient(160deg, #6B2D5E 0%, #D4548A 55%, #F4A261 100%);
+  padding: 3.5rem 2rem 4.5rem;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero-deco{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 15% 80%, rgba(255,255,255,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 20%, rgba(255,255,255,0.06) 0%, transparent 40%);
+}
+.hero-eyebrow{
+  display:inline-block;
+  font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.75);
+  border:1px solid rgba(255,255,255,0.3);
+  padding:0.35rem 1rem;border-radius:50px;
+  margin-bottom:1.4rem;position:relative;
+}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2rem,6vw,3.6rem);
+  font-weight:900;color:#fff;
+  line-height:1.1;margin-bottom:0.8rem;
+  position:relative;
+}
+.hero h1 em{font-style:italic;color:#FFD8EE;}
+.hero-sub{color:rgba(255,255,255,0.82);font-size:1rem;max-width:520px;margin:0 auto 2rem;position:relative;}
+.hero-symbols{font-size:2.2rem;position:relative;letter-spacing:0.5rem;}
+.hero-wave{
+  position:absolute;bottom:0;left:0;right:0;height:50px;
+  background:var(--cream);
+  clip-path:ellipse(56% 100% at 50% 100%);
+}
+
+/* NAV */
+.pill-nav{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;
+  padding:2rem 1rem 0.5rem;
+}
+.pill{
+  background:var(--white);border:1.5px solid var(--border);
+  color:var(--muted);font-size:0.82rem;font-weight:500;
+  padding:0.45rem 1.1rem;border-radius:50px;cursor:pointer;
+  transition:all 0.2s;font-family:'DM Sans',sans-serif;
+}
+.pill:hover{border-color:var(--rose);color:var(--rose);}
+.pill.on{background:var(--rose);color:#fff;border-color:var(--rose);}
+
+/* SECTIONS */
+.sec{display:none;max-width:800px;margin:0 auto;padding:2rem 1.5rem 3rem;}
+.sec.on{display:block;animation:pop .35s ease;}
+@keyframes pop{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.sec-title{
+  font-family:'Fraunces',serif;font-size:1.7rem;font-weight:700;
+  color:var(--plum);margin-bottom:0.25rem;
+}
+.sec-lead{color:var(--muted);margin-bottom:1.8rem;font-size:0.93rem;}
+
+/* CARDS */
+.card{
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:18px;padding:1.4rem;margin-bottom:1.2rem;
+  box-shadow:0 3px 14px rgba(107,45,94,0.06);
+  transition:transform 0.18s;
+}
+.card:hover{transform:translateY(-3px);}
+.card-head{display:flex;align-items:center;gap:0.9rem;margin-bottom:0.7rem;}
+.card-icon{
+  width:46px;height:46px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;flex-shrink:0;
+}
+.ci-rose{background:var(--rose-lt);}
+.ci-peach{background:var(--peach-lt);}
+.ci-sage{background:var(--sage-lt);}
+.ci-plum{background:#EDE0EC;}
+.card h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--ink);}
+.card p{color:#4a4558;font-size:0.9rem;line-height:1.7;}
+
+/* HIGHLIGHT BOX */
+.hbox{
+  border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.2rem;
+  font-size:0.9rem;line-height:1.7;
+}
+.hbox-rose{background:var(--rose-lt);border-left:3px solid var(--rose);color:var(--plum);}
+.hbox-sage{background:var(--sage-lt);border-left:3px solid var(--sage);color:#2a4a42;}
+.hbox-peach{background:var(--peach-lt);border-left:3px solid var(--peach);color:#7a4010;}
+.hbox strong{font-weight:600;}
+
+/* MYTH CARDS */
+.myth-grid{display:grid;grid-template-columns:1fr;gap:1rem;}
+.myth-card{
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:16px;overflow:hidden;cursor:pointer;
+  transition:box-shadow 0.2s;
+}
+.myth-card:hover{box-shadow:0 6px 20px rgba(212,84,138,0.12);}
+.myth-front{
+  padding:1.1rem 1.3rem;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.myth-label{
+  font-size:0.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  background:var(--rose-lt);color:var(--rose);
+  padding:0.2rem 0.6rem;border-radius:4px;margin-bottom:0.4rem;display:inline-block;
+}
+.myth-front h4{font-family:'Fraunces',serif;font-size:0.95rem;font-weight:700;color:var(--ink);}
+.myth-chevron{color:var(--rose);font-size:1.2rem;transition:transform 0.25s;flex-shrink:0;margin-left:1rem;}
+.myth-chevron.open{transform:rotate(180deg);}
+.myth-truth{
+  display:none;padding:0 1.3rem 1.2rem;
+  font-size:0.88rem;color:#4a4558;line-height:1.7;
+}
+.myth-truth.open{display:block;animation:pop .25s ease;}
+
+/* WAVE / TIMELINE */
+.wave-list{list-style:none;position:relative;padding-left:2.2rem;}
+.wave-list::before{
+  content:'';position:absolute;left:0.65rem;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(to bottom,var(--rose),var(--peach));border-radius:2px;
+}
+.wave-list li{
+  position:relative;margin-bottom:1.3rem;
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:14px;padding:1rem 1.2rem;
+  font-size:0.9rem;color:#4a4558;
+  transition:transform 0.18s;
+}
+.wave-list li:hover{transform:translateX(4px);}
+.wave-dot{
+  position:absolute;left:-1.75rem;top:1rem;
+  width:18px;height:18px;border-radius:50%;
+  border:3px solid var(--white);
+  box-shadow:0 0 0 2px var(--rose);
+  background:var(--rose);
+}
+.wave-list li h5{font-family:'Fraunces',serif;font-size:0.92rem;font-weight:700;color:var(--plum);margin-bottom:0.3rem;}
+.wave-year{
+  display:inline-block;font-size:0.7rem;font-weight:600;letter-spacing:1px;
+  background:var(--plum);color:#fff;padding:0.15rem 0.55rem;border-radius:4px;margin-bottom:0.4rem;
+}
+
+/* QUIZ */
+.quiz-wrap{background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;}
+.quiz-prog{display:flex;gap:5px;margin-bottom:1.4rem;}
+.quiz-seg{flex:1;height:5px;border-radius:3px;background:var(--border);transition:background .3s;}
+.quiz-seg.done{background:var(--sage);}
+.quiz-seg.cur{background:var(--rose);}
+.qnum{font-size:0.78rem;color:var(--muted);margin-bottom:0.4rem;}
+.qtext{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:1.1rem;line-height:1.4;}
+.opts{display:flex;flex-direction:column;gap:0.55rem;}
+.opt{
+  background:#faf8fc;border:1.5px solid var(--border);
+  border-radius:12px;padding:0.8rem 1rem;
+  cursor:pointer;font-size:0.9rem;color:var(--ink);
+  text-align:left;font-family:'DM Sans',sans-serif;
+  transition:all 0.18s;
+}
+.opt:hover:not([disabled]){border-color:var(--rose);background:var(--rose-lt);}
+.opt.right{border-color:var(--sage);background:var(--sage-lt);color:var(--sage);}
+.opt.wrong{border-color:#e05;background:#ffe8ef;color:#900;}
+.opt[disabled]{cursor:default;}
+.qfeedback{
+  margin-top:0.9rem;padding:0.9rem 1rem;border-radius:12px;
+  font-size:0.87rem;line-height:1.6;display:none;
+}
+.qfeedback.show{display:block;animation:pop .3s ease;}
+.qfeedback.ok{background:var(--sage-lt);color:var(--sage);}
+.qfeedback.no{background:#ffe8ef;color:#900;}
+.btn-next{
+  margin-top:0.9rem;background:var(--plum);color:#fff;
+  border:none;padding:0.7rem 1.8rem;border-radius:10px;
+  cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:600;
+  display:none;transition:all .18s;
+}
+.btn-next:hover{background:var(--rose);}
+.quiz-result{text-align:center;padding:1.5rem 1rem;}
+.qscore{font-family:'Fraunces',serif;font-size:3.5rem;font-weight:900;color:var(--rose);}
+.qmsg{color:var(--muted);font-size:0.92rem;margin:0.4rem 0 1.2rem;}
+.btn-redo{
+  background:var(--peach);color:#fff;border:none;padding:0.7rem 1.8rem;
+  border-radius:10px;cursor:pointer;font-family:'DM Sans',sans-serif;
+  font-weight:600;font-size:0.88rem;transition:all .18s;
+}
+.btn-redo:hover{filter:brightness(0.92);}
+
+/* JOURNAL */
+.journal-prompt{
+  background:linear-gradient(135deg,var(--rose-lt),var(--peach-lt));
+  border-radius:16px;padding:1.4rem;margin-bottom:1.2rem;
+}
+.journal-prompt h4{font-family:'Fraunces',serif;font-size:0.95rem;font-weight:700;color:var(--plum);margin-bottom:0.5rem;}
+.journal-prompt p{font-size:0.88rem;color:#5a3050;margin-bottom:0.8rem;}
+.jlines{display:flex;flex-direction:column;gap:0.5rem;}
+.jline{
+  background:rgba(255,255,255,0.7);border:none;border-bottom:1.5px solid rgba(212,84,138,0.3);
+  border-radius:6px 6px 0 0;padding:0.6rem 0.7rem;
+  font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);
+  outline:none;transition:border-color .2s;resize:none;
+}
+.jline:focus{border-color:var(--rose);}
+
+/* WOMAN CARDS */
+.women-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+.woman-card{
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:18px;padding:1.3rem;text-align:center;
+  transition:transform .2s;
+}
+.woman-card:hover{transform:translateY(-4px);}
+.woman-emoji{font-size:3rem;margin-bottom:0.6rem;}
+.woman-card h4{font-family:'Fraunces',serif;font-size:0.95rem;font-weight:700;color:var(--plum);margin-bottom:0.2rem;}
+.woman-card .wdate{font-size:0.74rem;color:var(--muted);margin-bottom:0.5rem;letter-spacing:0.5px;}
+.woman-card p{font-size:0.82rem;color:#5a4a60;line-height:1.55;}
+
+/* CHECKLIST */
+.cklist{list-style:none;}
+.ck-item{
+  display:flex;align-items:flex-start;gap:0.8rem;
+  padding:0.8rem 0;border-bottom:1px solid var(--border);
+  cursor:pointer;
+}
+.ck-item:last-child{border-bottom:none;}
+.ck-box{
+  width:22px;height:22px;border-radius:6px;flex-shrink:0;
+  border:1.5px solid var(--border);transition:all .2s;margin-top:2px;
+  display:flex;align-items:center;justify-content:center;
+}
+.ck-item.done .ck-box{background:var(--rose);border-color:var(--rose);}
+.ck-item.done .ck-box::after{content:'✓';color:#fff;font-size:0.75rem;font-weight:700;}
+.ck-item.done .ck-text{color:var(--muted);text-decoration:line-through;}
+.ck-text{font-size:0.9rem;color:var(--ink);line-height:1.5;}
+
+/* PLEDGE */
+.pledge-box{
+  background:linear-gradient(135deg,var(--plum),var(--rose));
+  border-radius:20px;padding:2rem;text-align:center;color:#fff;margin-top:1.5rem;
+}
+.pledge-box h3{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;margin-bottom:0.6rem;}
+.pledge-box p{opacity:0.85;font-size:0.9rem;margin-bottom:1.2rem;}
+.pledge-input{
+  width:100%;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.3);
+  border-radius:10px;padding:0.75rem 1rem;color:#fff;font-size:0.9rem;
+  font-family:'DM Sans',sans-serif;outline:none;margin-bottom:0.8rem;
+}
+.pledge-input::placeholder{color:rgba(255,255,255,0.5);}
+.pledge-input:focus{border-color:#fff;}
+.btn-pledge{
+  background:#fff;color:var(--plum);border:none;padding:0.75rem 2rem;
+  border-radius:10px;cursor:pointer;font-family:'DM Sans',sans-serif;
+  font-weight:600;font-size:0.9rem;transition:all .18s;
+}
+.btn-pledge:hover{background:var(--rose-lt);}
+.pledge-confirm{
+  display:none;background:rgba(255,255,255,0.15);border-radius:12px;
+  padding:1rem;margin-top:0.5rem;font-size:0.9rem;
+}
+
+footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);}
+@media(max-width:540px){.hero h1{font-size:1.8rem;}.women-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-eyebrow">Гурток «Між нами дівчатами» · 8–9 клас</div>
+  <h1>Фемінізм:<br><em>що це насправді?</em></h1>
+  <p class="hero-sub">Розбираємо міфи, дізнаємося про права, знайомимося з жінками, які змінили світ — і думаємо про себе</p>
+  <div class="hero-symbols">♀ ✊ 💜</div>
+  <div class="hero-wave"></div>
+</header>
+
+<!-- NAV -->
+<nav class="pill-nav">
+  <button class="pill on"  onclick="show('intro')">🌸 Вступ</button>
+  <button class="pill"     onclick="show('myths')">💥 Міфи</button>
+  <button class="pill"     onclick="show('history')">📜 Хвилі</button>
+  <button class="pill"     onclick="show('women')">🌟 Жінки-зірки</button>
+  <button class="pill"     onclick="show('quiz')">🧠 Вікторина</button>
+  <button class="pill"     onclick="show('me')">💌 Про мене</button>
+</nav>
+
+<!-- ══════════════ ВСТУП ══════════════ -->
+<section id="intro" class="sec on">
+  <p class="sec-title">Що таке фемінізм?</p>
+  <p class="sec-lead">Починаємо з найважливішого — з визначення, яке часто спотворюють</p>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-icon ci-rose">📖</div>
+      <h3>Просте визначення</h3>
+    </div>
+    <p><strong>Фемінізм</strong> — це рух за рівні права, можливості та повагу для всіх людей незалежно від статі. Ніякої ненависті до чоловіків. Ніякого «жінки кращі». Просто рівність.</p>
+  </div>
+
+  <div class="hbox hbox-rose">
+    <strong>Визначення ООН:</strong> «Фемінізм — це переконання в соціальній, економічній та політичній рівності статей».
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-icon ci-sage">🤔</div>
+      <h3>Чому слово лякає?</h3>
+    </div>
+    <p>Слово «фемінізм» часто викликає незручність — через стереотипи в кіно, соцмережах, жарти. Але поняття набагато простіше й добріше, ніж здається. Давай розберемося разом.</p>
+  </div>
+
+  <div class="hbox hbox-peach">
+    <strong>Цікавий факт:</strong> Слово «фемінізм» з'явилось у 1837 році — його придумав французький соціаліст Шарль Фур'є. Йому вже майже 200 років!
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-icon ci-plum">💜</div>
+      <h3>Чи потрібен фемінізм сьогодні?</h3>
+    </div>
+    <p>В Україні жінки отримали право голосу у 1919 р. Але й досі: жінки в Україні в середньому заробляють на 20% менше за чоловіків при однаковій роботі; 2 з 3 жертв домашнього насильства — жінки; дівчата частіше чують «ти не зможеш» у точних науках. Тому — так, потрібен.</p>
+  </div>
+
+  <ul class="cklist" id="introCheck">
+    <li class="ck-item" onclick="ck(this)"><div class="ck-box"></div><span class="ck-text">Я розумію, що фемінізм — про рівність, а не про ненависть</span></li>
+    <li class="ck-item" onclick="ck(this)"><div class="ck-box"></div><span class="ck-text">Я знаю хоч одну жінку-лідерку чи активістку</span></li>
+    <li class="ck-item" onclick="ck(this)"><div class="ck-box"></div><span class="ck-text">Я помічала несправедливість через стать — у житті чи в школі</span></li>
+    <li class="ck-item" onclick="ck(this)"><div class="ck-box"></div><span class="ck-text">Я готова дізнатись більше і мати власну думку</span></li>
+  </ul>
+</section>
+
+<!-- ══════════════ МІФИ ══════════════ -->
+<section id="myths" class="sec">
+  <p class="sec-title">Розбиваємо міфи</p>
+  <p class="sec-lead">Натисни на кожну картку — і дізнайся правду</p>
+
+  <div class="myth-grid">
+
+    <div class="myth-card">
+      <div class="myth-front" onclick="toggleMyth(this)">
+        <div>
+          <span class="myth-label">МІФ</span>
+          <h4>«Феміністки ненавидять чоловіків»</h4>
+        </div>
+        <span class="myth-chevron">▼</span>
+      </div>
+      <div class="myth-truth">
+        ✅ <strong>Правда:</strong> Фемінізм не проти чоловіків — він проти системи, яка обмежує всіх. Стереотипи шкодять і хлопцям: «справжній чоловік не плаче», «чоловіки не можуть бути слабкими» — це теж продукт тієї самої системи. Чоловіки теж виграють від рівності.
+      </div>
+    </div>
+
+    <div class="myth-card">
+      <div class="myth-front" onclick="toggleMyth(this)">
+        <div>
+          <span class="myth-label">МІФ</span>
+          <h4>«Феміністки не хочуть сім'ї і дітей»</h4>
+        </div>
+        <span class="myth-chevron">▼</span>
+      </div>
+      <div class="myth-truth">
+        ✅ <strong>Правда:</strong> Фемінізм — це право вибору. Хочеш сім'ю — будуй сім'ю. Хочеш кар'єру — будуй кар'єру. Хочеш і те, й інше — це теж твій вибір. Головна ідея: ніхто не повинен диктувати тобі, як жити, через те, що ти жінка.
+      </div>
+    </div>
+
+    <div class="myth-card">
+      <div class="myth-front" onclick="toggleMyth(this)">
+        <div>
+          <span class="myth-label">МІФ</span>
+          <h4>«Рівність вже досягнута — навіщо рух?»</h4>
+        </div>
+        <span class="myth-chevron">▼</span>
+      </div>
+      <div class="myth-truth">
+        ✅ <strong>Правда:</strong> Права на папері — це добре. Але їх виконання — інше. Гендерна різниця в зарплатах існує в 90% країн. У парламентах світу — лише 26% жінок. В Україні серед керівників компаній — менше 25% жінок. Робота ще далеко не завершена.
+      </div>
+    </div>
+
+    <div class="myth-card">
+      <div class="myth-front" onclick="toggleMyth(this)">
+        <div>
+          <span class="myth-label">МІФ</span>
+          <h4>«Це імпорт із Заходу, нам не підходить»</h4>
+        </div>
+        <span class="myth-chevron">▼</span>
+      </div>
+      <div class="myth-truth">
+        ✅ <strong>Правда:</strong> В Україні є власна потужна феміністична традиція! Леся Українка, Олена Пчілка, Наталя Кобринська — вони боролися за права жінок ще на початку XX ст. «Товариство руських жінок» у Галичині засновано 1884 року — до більшості «захід­них» феміністичних організацій.
+      </div>
+    </div>
+
+    <div class="myth-card">
+      <div class="myth-front" onclick="toggleMyth(this)">
+        <div>
+          <span class="myth-label">МІФ</span>
+          <h4>«Феміністки агресивні та не мають гумору»</h4>
+        </div>
+        <span class="myth-chevron">▼</span>
+      </div>
+      <div class="myth-truth">
+        ✅ <strong>Правда:</strong> Відстоювати свої права — не те саме, що бути агресивною. Коли людині боляче від несправедливості і вона говорить про це — це не агресія, це сміливість. До того ж серед феміністок безліч жінок із чудовим гумором — Тіна Фей, Мінді Кейлінг, Елізабет Воррен.
+      </div>
+    </div>
+
+    <div class="myth-card">
+      <div class="myth-front" onclick="toggleMyth(this)">
+        <div>
+          <span class="myth-label">МІФ</span>
+          <h4>«Я не можу бути феміністкою, якщо люблю макіяж / сукні»</h4>
+        </div>
+        <span class="myth-chevron">▼</span>
+      </div>
+      <div class="myth-truth">
+        ✅ <strong>Правда:</strong> Можеш! Фемінізм — це право самій вирішувати, як ти виглядаєш. Носиш сукні бо тобі подобається? Чудово. Ніколи не носиш? Теж чудово. Головне — твій власний вибір, а не тиск «так треба».
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ ХВИЛІ ══════════════ -->
+<section id="history" class="sec">
+  <p class="sec-title">Три хвилі фемінізму</p>
+  <p class="sec-lead">Коротка і захоплива історія руху за рівність</p>
+
+  <div class="hbox hbox-sage">
+    <strong>Чому «хвилі»?</strong> Тому що рух розвивався поступово — і кожна «хвиля» боролася за щось нове, будуючи на попередній.
+  </div>
+
+  <ul class="wave-list">
+
+    <li>
+      <div class="wave-dot" style="background:var(--rose);box-shadow:0 0 0 2px var(--rose);"></div>
+      <div class="wave-year">1848 – 1920-ті</div>
+      <h5>🗳 Перша хвиля — право голосу</h5>
+      Жінки боролися за базові громадянські права: голосувати, навчатись, мати власність. У США жінки отримали право голосу 1920 р., в Україні — 1919 р. Суфражистки влаштовували марші, голодування, лінгувалися ланцюгами до огорож — і перемогли.
+    </li>
+
+    <li>
+      <div class="wave-dot" style="background:var(--peach);box-shadow:0 0 0 2px var(--peach);"></div>
+      <div class="wave-year">1960 – 1980-ті</div>
+      <h5>💼 Друга хвиля — рівність у роботі і тілі</h5>
+      Право на рівну зарплату, заборону дискримінації на роботі, доступ до освіти в будь-якій сфері, репродуктивні права. «Особисте — це політичне» — гасло цієї хвилі. Жінки почали говорити про насильство і harassment вголос.
+    </li>
+
+    <li>
+      <div class="wave-dot" style="background:var(--sage);box-shadow:0 0 0 2px var(--sage);"></div>
+      <div class="wave-year">1990-ті – сьогодні</div>
+      <h5>🌐 Третя хвиля — різноманітність і перетин</h5>
+      Фемінізм став більш інклюзивним: права жінок різних рас, класів, орієнтацій. Поняття «перетинальність» (intersectionality) — розуміння, що різні форми дискримінації пов'язані. Рух #MeToo — продукт третьої хвилі.
+    </li>
+
+    <li>
+      <div class="wave-dot" style="background:var(--plum);box-shadow:0 0 0 2px var(--plum);"></div>
+      <div class="wave-year">2010-ті – зараз</div>
+      <h5>📱 Четверта хвиля — онлайн і відповідальність</h5>
+      Соцмережі дали жінкам інструмент організації. #MeToo охопив увесь світ за тижні. «Cancel culture», accountability, онлайн-активізм — ознаки нашого часу. Молоді дівчата як ти стають голосом змін.
+    </li>
+
+  </ul>
+
+  <div class="hbox hbox-rose" style="margin-top:1.5rem;">
+    <strong>Українські піонерки:</strong> Наталя Кобринська (1855–1920) — засновниця першої феміністичної організації в Україні. Ольга Басараб — революціонерка і борець за незалежність. Соломія Крушельницька — перша українська зірка світової оперної сцени, яка сама керувала своєю кар'єрою.
+  </div>
+</section>
+
+<!-- ══════════════ ЖІНКИ-ЗІРКИ ══════════════ -->
+<section id="women" class="sec">
+  <p class="sec-title">Жінки, які змінили світ</p>
+  <p class="sec-lead">Вони казали «ні» — і перемагали</p>
+
+  <div class="women-grid">
+
+    <div class="woman-card">
+      <div class="woman-emoji">✍️</div>
+      <h4>Леся Українка</h4>
+      <p class="wdate">1871–1913 · Україна</p>
+      <p>Писала, коли «жінкам не місце в літературі». Першою з українців переклала «Маніфест» Маркса. Її слова «Ні, я жива! Я буду вічно жити» — про силу голосу кожної з нас.</p>
+    </div>
+
+    <div class="woman-card">
+      <div class="woman-emoji">⚖️</div>
+      <h4>Малала Юсуфзай</h4>
+      <p class="wdate">2012 – сьогодні · Пакистан</p>
+      <p>У 15 років вижила після замаху таліба за те, що говорила про право дівчат на освіту. У 17 — наймолодший лауреат Нобелівської премії миру. Її зброя — слова.</p>
+    </div>
+
+    <div class="woman-card">
+      <div class="woman-emoji">🔬</div>
+      <h4>Марія Кюрі</h4>
+      <p class="wdate">1867–1934 · Польща/Франція</p>
+      <p>Перша жінка — лауреат Нобелівської премії. Перша людина з двома Нобелями у різних науках. Вчилась таємно, бо університети не приймали жінок. Відкрила полоній і радій.</p>
+    </div>
+
+    <div class="woman-card">
+      <div class="woman-emoji">✊</div>
+      <h4>Роза Паркс</h4>
+      <p class="wdate">1955 · США</p>
+      <p>Відмовилась поступитись місцем у автобусі — і запустила рух за громадянські права у США. «Єдина причина, чому я не встала — я втомилась від того, що постійно поступаюсь».</p>
+    </div>
+
+    <div class="woman-card">
+      <div class="woman-emoji">🎤</div>
+      <h4>Beyoncé</h4>
+      <p class="wdate">2013 – сьогодні · США</p>
+      <p>Використовує сцену як трибуну: відкрито говорить про фемінізм, расизм, материнство. На сцені VMAs 2014 позаду неї горіло слово FEMINIST. Мільйонна аудиторія побачила і задумалась.</p>
+    </div>
+
+    <div class="woman-card">
+      <div class="woman-emoji">🌍</div>
+      <h4>Гreta Тунберг</h4>
+      <p class="wdate">2018 – сьогодні · Швеція</p>
+      <p>У 15 років почала страйк перед парламентом — за клімат. Лідери світу відмахувались. Вона продовжила. Щоп'ятниці мільйони дітей у 150 країнах страйкували разом. Один голос може змінити все.</p>
+    </div>
+
+  </div>
+
+  <div class="hbox hbox-rose" style="margin-top:1.5rem;">
+    <strong>💬 Завдання:</strong> Яка з цих жінок вас надихає найбільше і чому? Поділіться з групою — або запишіть нижче у розділі «Про мене».
+  </div>
+</section>
+
+<!-- ══════════════ ВІКТОРИНА ══════════════ -->
+<section id="quiz" class="sec">
+  <p class="sec-title">Перевір себе!</p>
+  <p class="sec-lead">7 питань — від простих до несподіваних</p>
+
+  <div class="quiz-wrap">
+    <div id="qActive">
+      <div class="quiz-prog" id="qProg"></div>
+      <p class="qnum" id="qNum"></p>
+      <p class="qtext" id="qText"></p>
+      <div class="opts" id="qOpts"></div>
+      <div class="qfeedback" id="qFB"></div>
+      <button class="btn-next" id="btnNext" onclick="nextQ()">Далі →</button>
+    </div>
+    <div id="qRes" class="quiz-result" style="display:none">
+      <div class="qscore" id="qScore"></div>
+      <p class="qmsg" id="qMsg"></p>
+      <button class="btn-redo" onclick="redoQ()">Пройти знову 🔄</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ПРО МЕНЕ ══════════════ -->
+<section id="me" class="sec">
+  <p class="sec-title">Це про мене</p>
+  <p class="sec-lead">Рефлексія, нотатки та твоя особиста обіцянка</p>
+
+  <div class="journal-prompt">
+    <h4>✍️ Запиши свої думки</h4>
+    <p>Що з сьогоднішнього заняття здивувало або зачепило найбільше?</p>
+    <div class="jlines">
+      <textarea class="jline" rows="2" placeholder="Мене здивувало..."></textarea>
+      <textarea class="jline" rows="2" placeholder="Я думала, що фемінізм — це... а виявилось..."></textarea>
+    </div>
+  </div>
+
+  <div class="journal-prompt" style="margin-top:0;">
+    <h4>🌟 Моя жінка-натхнення</h4>
+    <p>Яка жінка (відома або з твого оточення) надихає тебе — і чому?</p>
+    <div class="jlines">
+      <textarea class="jline" rows="3" placeholder="Мене надихає... тому що..."></textarea>
+    </div>
+  </div>
+
+  <div class="journal-prompt" style="margin-top:0;">
+    <h4>💪 Одна дія</h4>
+    <p>Яку одну маленьку дію ти можеш зробити цього тижня, щоб підтримати рівність?</p>
+    <div class="jlines">
+      <textarea class="jline" rows="2" placeholder="Цього тижня я..."></textarea>
+    </div>
+  </div>
+
+  <div class="pledge-box">
+    <h3>Моя обіцянка собі 💜</h3>
+    <p>Напиши одне речення — що ти обіцяєш собі після цього заняття</p>
+    <input class="pledge-input" id="pledgeInput" type="text" placeholder="Я обіцяю собі...">
+    <br>
+    <button class="btn-pledge" onclick="savePledge()">Зберегти обіцянку ✨</button>
+    <div class="pledge-confirm" id="pledgeConfirm"></div>
+  </div>
+</section>
+
+<footer>
+  Гурток «Між нами дівчатами» · Тема: Фемінізм · Матеріали для учениць
+</footer>
+
+<script>
+// NAV
+function show(id){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  const map={intro:0,myths:1,history:2,women:3,quiz:4,me:5};
+  document.querySelectorAll('.pill')[map[id]].classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+// CHECKLIST
+function ck(el){el.classList.toggle('done');}
+// MYTH TOGGLE
+function toggleMyth(front){
+  const truth=front.parentElement.querySelector('.myth-truth');
+  const chev=front.querySelector('.myth-chevron');
+  truth.classList.toggle('open');
+  chev.classList.toggle('open');
+}
+
+// QUIZ DATA
+const QS=[
+  {q:'Хто вважається «матір\'ю» феміністичного руху в Україні?',
+   o:['Леся Українка','Наталя Кобринська','Ольга Кобилянська','Соломія Крушельницька'],
+   a:1,
+   e:'Наталя Кобринська (1855–1920) заснувала першу феміністичну організацію в Україні та видавала альманах «Перший вінок».'},
+  {q:'У якому році жінки в Україні отримали право голосу?',
+   o:['1905','1919','1945','1991'],
+   a:1,
+   e:'Жінки в Україні отримали виборчі права у 1919 р. — раніше, ніж у Великій Британії (1928) та Франції (1944)!'},
+  {q:'Що означає гасло другої хвилі «Особисте — це політичне»?',
+   o:['Жінки повинні йти в політику','Проблеми у родині — це суспільні проблеми','Особисте життя треба ховати','Жінки не можуть мати особистих думок'],
+   a:1,
+   e:'Гасло означало: те, що відбувається вдома (насильство, нерівна праця) — не приватна справа, а системна проблема, яку треба вирішувати суспільно.'},
+  {q:'Малала Юсуфзай стала лауреаткою Нобелівської премії миру у якому віці?',
+   o:['12 років','17 років','21 рік','25 років'],
+   a:1,
+   e:'Малала отримала Нобелівську премію у 2014 р. у віці 17 років — наймолодша лауреатка в історії. Вона боролась за право дівчат на освіту.'},
+  {q:'Скільки жінок очолюють уряди та є президентами у світі (станом на 2024 р.)?',
+   o:['Менше 10%','Близько 25%','Майже 50%','Більше ніж чоловіків'],
+   a:0,
+   e:'Жінки становлять лише 9-10% керівників держав та урядів у світі. Прогрес є, але рівності досі далеко.'},
+  {q:'Як називається концепція, що визнає перетин різних видів дискримінації?',
+   o:['Сексизм','Інтерсекціональність','Патріархат','Гендерна нейтральність'],
+   a:1,
+   e:'Intersectionality (перетинальність) — ідея, що дискримінація за статтю, расою, класом та іншими ознаками накладаються одна на одну. Термін ввела Кімберлі Креншо у 1989 р.'},
+  {q:'Що з цього НЕ є метою фемінізму?',
+   o:['Рівна оплата праці','Право жінок самим вирішувати своє майбутнє','Перевага жінок над чоловіками','Захист від насильства'],
+   a:2,
+   e:'Фемінізм — про рівність, а не про перевагу. Якщо хтось каже «феміністки хочуть домінувати» — це маніпуляція або нерозуміння суті руху.'},
+];
+
+let cur=0,score=0,answered=false;
+function initQ(){cur=0;score=0;answered=false;renderQ();}
+function renderQ(){
+  const q=QS[cur];
+  document.getElementById('qNum').textContent=`Питання ${cur+1} з ${QS.length}`;
+  document.getElementById('qText').textContent=q.q;
+  const prog=document.getElementById('qProg');
+  prog.innerHTML=QS.map((_,i)=>`<div class="quiz-seg ${i<cur?'done':i===cur?'cur':''}"></div>`).join('');
+  const opts=document.getElementById('qOpts');
+  opts.innerHTML=q.o.map((o,i)=>`<button class="opt" onclick="selA(${i})">${o}</button>`).join('');
+  document.getElementById('qFB').className='qfeedback';
+  document.getElementById('qFB').innerHTML='';
+  document.getElementById('btnNext').style.display='none';
+  answered=false;
+}
+function selA(i){
+  if(answered)return;answered=true;
+  const q=QS[cur];
+  document.querySelectorAll('.opt').forEach(o=>o.disabled=true);
+  document.querySelectorAll('.opt')[i].classList.add(i===q.a?'right':'wrong');
+  if(i!==q.a)document.querySelectorAll('.opt')[q.a].classList.add('right');
+  const ok=i===q.a;if(ok)score++;
+  const fb=document.getElementById('qFB');
+  fb.className='qfeedback show '+(ok?'ok':'no');
+  fb.innerHTML=(ok?'✅ Правильно! ':'❌ Не зовсім. ')+q.e;
+  document.getElementById('btnNext').style.display='block';
+}
+function nextQ(){
+  cur++;
+  if(cur>=QS.length){showRes();}else{renderQ();}
+}
+function showRes(){
+  document.getElementById('qActive').style.display='none';
+  document.getElementById('qRes').style.display='block';
+  document.getElementById('qScore').textContent=`${score}/${QS.length}`;
+  const msgs=[
+    [0,3,'Є куди рости! Перечитай матеріали — і пройди ще раз 📚'],
+    [4,5,'Добре! Ти вже знаєш більше, ніж більшість 💪'],
+    [6,6,'Відмінно! Справжня зірка феміністичної теорії 🌟'],
+    [7,7,'Ідеально! Ти могла б провести цей урок сама 🏆'],
+  ];
+  const m=msgs.find(([mn,mx])=>score>=mn&&score<=mx);
+  document.getElementById('qMsg').textContent=m?m[2]:'';
+}
+function redoQ(){
+  document.getElementById('qActive').style.display='block';
+  document.getElementById('qRes').style.display='none';
+  initQ();
+}
+initQ();
+
+// PLEDGE
+function savePledge(){
+  const v=document.getElementById('pledgeInput').value.trim();
+  if(!v)return;
+  const el=document.getElementById('pledgeConfirm');
+  el.style.display='block';
+  el.innerHTML=`💜 Збережено: <em>"${v}"</em><br><small>Запам'ятай це — і повертайся до цього речення у важкі моменти.</small>`;
+}
+</script>
+</body>
+</html>
